@@ -1,16 +1,18 @@
 {
   "$schema": "https://json.schemastore.org/eslintrc.json",
   "env": {
-    "browser": false,
+    "browser": true,
     "es2021": true,
+    "jest": true,
     "node": true
   },
-
   "extends": [
+    "next/core-web-vitals",
     "plugin:react/recommended",
     "plugin:prettier/recommended",
     "plugin:react-hooks/recommended",
     "plugin:jsx-a11y/recommended",
+    "plugin:@typescript-eslint/recommended",
     "eslint:recommended",
     "plugin:prettier/recommended"
   ],
@@ -33,13 +35,18 @@
     "react/prop-types": "off",
     "react/jsx-uses-react": "off",
     "react/react-in-jsx-scope": "off",
+    "react/no-unknown-property": "warn",
     "react-hooks/exhaustive-deps": "off",
     "jsx-a11y/click-events-have-key-events": "warn",
     "jsx-a11y/interactive-supports-focus": "warn",
+    "jsx-a11y/heading-has-content": "warn",
+    "jsx-a11y/anchor-has-content": "warn",
+    "jsx-a11y/no-static-element-interactions": "warn",
     "prettier/prettier": "warn",
     "no-unused-vars": "off",
-    "unused-imports/no-unused-vars": "off",
+    "unused-imports/no-unused-vars": "warn",
     "unused-imports/no-unused-imports": "warn",
+    "@typescript-eslint/no-require-imports": "warn",
     "object-curly-spacing": ["error", "never"],
     "@typescript-eslint/no-unused-vars": [
       "warn",
@@ -68,8 +75,7 @@
             "group": "external",
             "position": "after"
           }
-        ],
-        "newlines-between": "always"
+        ]
       }
     ],
     "react/self-closing-comp": "warn",
@@ -88,17 +94,8 @@
         "blankLine": "always",
         "prev": "*",
         "next": "return"
-      },
-      {
-        "blankLine": "always",
-        "prev": ["const", "let", "var"],
-        "next": "*"
-      },
-      {
-        "blankLine": "any",
-        "prev": ["const", "let", "var"],
-        "next": ["const", "let", "var"]
       }
-    ]
+    ],
+    "@typescript-eslint/no-explicit-any": "warn"
   }
 }
